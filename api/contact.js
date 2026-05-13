@@ -19,9 +19,12 @@ module.exports = async function handler(req, res) {
     }
 
     const { error } = await supabase
-        .from('contacts')
+        .from('leads')
         .insert([{ name, email, business_type, message, created_at: new Date().toISOString() }]);
 
-    if (error) return res.status(500).json({ error: error.message });
+    if (error) {
+        console.error('Supabase insert error:', error.message, error.details, error.hint);
+        return res.status(500).json({ error: error.message });
+    }
     res.json({ success: true });
 };
