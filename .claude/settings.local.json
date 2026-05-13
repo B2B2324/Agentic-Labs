@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(node -e ' *)",
+      "Bash(node --check agents/customer-service/core.js)",
+      "Bash(node --check agents/customer-service/widget.js)",
+      "Bash(node --check adapters/gmail.js)",
+      "Bash(node --check adapters/slack.js)",
+      "Bash(node --check adapters/zendesk.js)"
     ]
   }
 }
