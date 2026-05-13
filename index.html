@@ -352,9 +352,28 @@
 
         .select-wrap {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
             margin-bottom: 48px;
         }
+
+        .other-input {
+            background: var(--surface-2);
+            border: 1px solid var(--border-hover);
+            color: var(--text);
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            font-family: inherit;
+            min-width: 310px;
+            outline: none;
+            transition: border-color 0.2s;
+            display: none;
+        }
+        .other-input::placeholder { color: var(--text-dim); }
+        .other-input:focus { border-color: var(--accent); }
 
         .ind-select {
             background: var(--surface-2);
@@ -1185,7 +1204,19 @@
                 <option>Construction Company</option>
                 <option>Auto Dealership</option>
                 <option>Gym / Fitness Studio</option>
+                <option>Dental Practice</option>
+                <option>Veterinary Clinic</option>
+                <option>Hair Salon / Spa</option>
+                <option>Accounting Firm</option>
+                <option>Insurance Agency</option>
+                <option>Property Management</option>
+                <option>Childcare / Daycare</option>
+                <option>Landscaping Company</option>
+                <option>Plumbing / HVAC</option>
+                <option>Photography Studio</option>
+                <option value="other">Other</option>
             </select>
+            <input type="text" id="other-industry" class="other-input" placeholder="Describe your business in a few words…" />
         </div>
 
         <div id="wf-container">
@@ -1666,8 +1697,38 @@ function renderWorkflow(wf) {
         </div>`;
 }
 
+const otherEl = document.getElementById('other-industry');
+let lastOtherValue = '';
+
 indEl.addEventListener('change', e => {
-    if (e.target.value) generateWorkflow(e.target.value);
+    if (e.target.value === 'other') {
+        otherEl.style.display = 'block';
+        otherEl.focus();
+        lastOtherValue = '';
+    } else {
+        otherEl.style.display = 'none';
+        otherEl.value = '';
+        lastOtherValue = '';
+        if (e.target.value) generateWorkflow(e.target.value);
+    }
+});
+
+otherEl.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+        const val = otherEl.value.trim();
+        if (val && val !== lastOtherValue) {
+            lastOtherValue = val;
+            generateWorkflow(val);
+        }
+    }
+});
+
+otherEl.addEventListener('blur', () => {
+    const val = otherEl.value.trim();
+    if (val && val !== lastOtherValue) {
+        lastOtherValue = val;
+        generateWorkflow(val);
+    }
 });
 
 /* ─────────────────────────────────────────────────────────────
