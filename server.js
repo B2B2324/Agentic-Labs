@@ -112,6 +112,10 @@ app.post('/api/contact', async (req, res) => {
     res.json({ success: true });
 });
 
-app.listen(3001, () => {
-    console.log('Proxy server running on http://localhost:3001');
-});
+if (require.main === module) {
+    app.listen(3001, () => {
+        console.log('Proxy server running on http://localhost:3001');
+    });
+}
+
+module.exports = app;
