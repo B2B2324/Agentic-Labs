@@ -1,7 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const { createClient } = require('@supabase/supabase-js');
 
 const ANTHROPIC_KEY = process.env.ANTHROPIC_KEY;
+
+const supabase = createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_KEY
+);
 
 const app = express();
 app.use(cors());
@@ -90,6 +96,20 @@ app.post('/api/chat', async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});
+
+app.post('/api/contact', async (req, res) => {
+    const { name, email, business_type, message } = req.body;
+    if (!name || !email || !business_type || !message) {
+        return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    const { error } = await supabase
+        .from('contacts')
+        .insert([{ name, email, business_type, message, created_at: new Date().toISOString() }]);
+
+    if (error) return res.status(500).json({ error: error.message });
+    res.json({ success: true });
 });
 
 app.listen(3001, () => {

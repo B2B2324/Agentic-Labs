@@ -1545,17 +1545,40 @@ function closeModal() {
 document.getElementById('msg-modal').addEventListener('click', e => {
     if (e.target === e.currentTarget) closeModal();
 });
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
     e.preventDefault();
     const els = e.target.elements;
-    const data = {
-        name:         els[0].value,
-        email:        els[1].value,
-        businessType: els[2].value,
-        message:      els[3].value,
-    };
-    console.log('Message Us form submission:', data);
-    e.target.innerHTML = '<p style="text-align:center;color:#60a5fa;font-size:16px;padding:32px 0;">✓ Message received! We\'ll be in touch within 24 hours.</p>';
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+        const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                name:          els[0].value,
+                email:         els[1].value,
+                business_type: els[2].value,
+                message:       els[3].value,
+            }),
+        });
+
+        if (!res.ok) {
+            const body = await res.json().catch(() => ({}));
+            throw new Error(body?.error || `HTTP ${res.status}`);
+        }
+
+        e.target.innerHTML = '<p style="text-align:center;color:#60a5fa;font-size:16px;padding:32px 0;">Thanks! We\'ll be in touch within 24 hours.</p>';
+    } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message →';
+        const errEl = e.target.querySelector('.form-error') || document.createElement('p');
+        errEl.className = 'form-error';
+        errEl.style.cssText = 'color:#ef4444;font-size:14px;text-align:center;margin-top:8px;';
+        errEl.textContent = `Error: ${err.message}`;
+        if (!e.target.querySelector('.form-error')) e.target.appendChild(errEl);
+    }
 }
 
 /* ─────────────────────────────────────────────────────────────
