@@ -11,7 +11,10 @@
       "Bash(Remove-Item *)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(grep -n \"from.*leads\\\\|into.*leads\\\\|\\\\.from\\('leads'\\)\\\\|\\\\.from\\(\\\\\"leads\\\\\"\\)\" /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/core.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/apollo.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/crunchbase.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/excel-import.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/google-sheets-import.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/grok-search.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/linkedin-grok.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/lib/excel-export.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/lib/google-sheets.js 2>/dev/null)",
+      "Bash(grep -rn \"'leads'\" /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/lib 2>/dev/null)",
+      "Bash(grep -rn \"leads\" /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/lib 2>/dev/null | grep -v \"//\\\\|leads_\\\\|_leads\\\\|leadScore\\\\|leadGen\\\\|leadData\\\\|Leads\\\\b\")"
     ]
   }
 }
