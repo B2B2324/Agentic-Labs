@@ -14,7 +14,18 @@
       "Bash(git push *)",
       "Bash(grep -n \"from.*leads\\\\|into.*leads\\\\|\\\\.from\\('leads'\\)\\\\|\\\\.from\\(\\\\\"leads\\\\\"\\)\" /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/core.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/apollo.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/crunchbase.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/excel-import.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/google-sheets-import.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/grok-search.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents/lead-gen/sources/linkedin-grok.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/lib/excel-export.js /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/lib/google-sheets.js 2>/dev/null)",
       "Bash(grep -rn \"'leads'\" /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/lib 2>/dev/null)",
-      "Bash(grep -rn \"leads\" /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/lib 2>/dev/null | grep -v \"//\\\\|leads_\\\\|_leads\\\\|leadScore\\\\|leadGen\\\\|leadData\\\\|Leads\\\\b\")"
+      "Bash(grep -rn \"leads\" /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/agents /c/Users/brynn/OneDrive/Documents/GitHub/agentic-labs-agents/lib 2>/dev/null | grep -v \"//\\\\|leads_\\\\|_leads\\\\|leadScore\\\\|leadGen\\\\|leadData\\\\|Leads\\\\b\")",
+      "Bash(find /c/Users/brynn/OneDrive/Documents/GitHub -maxdepth 1 -type d -name \"*dashboard*\" -o -maxdepth 1 -type d -name \"*Dashboard*\" 2>/dev/null)",
+      "Bash(mkdir -p /c/Users/brynn/OneDrive/Documents/GitHub/Agentic-Labs/icons && cp /c/Users/brynn/OneDrive/Documents/GitHub/jobflow/icons/hero-bg.jpg /c/Users/brynn/OneDrive/Documents/GitHub/Agentic-Labs/icons/hero-bg.jpg && echo \"copied\")",
+      "Bash(git commit *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(grep -n \"HERO SECTION\\\\|section order\\\\|Knowledge Base\\\\|Connectors\\\\|Section A\\\\|Section B\\\\|section 1\\\\|1–13\\\\|Footer.*logo\\\\|Custom Agent\" \"/c/Users/brynn/.claude/projects/C--Users-brynn-OneDrive-Documents-GitHub-Agentic-Labs/2f8897d3-d14a-43a2-a19b-5effb5ebb0dc.jsonl\" | head -30)",
+      "Bash(python3 -c ' *)",
+      "Bash(git checkout *)",
+      "Bash(git merge *)",
+      "Bash(ls \"C:\\\\Users\\\\brynn\\\\OneDrive\\\\Documents\\\\GitHub\\\\jobflow\\\\api\" 2>/dev/null || echo \"No api dir\")",
+      "Bash(grep -n \"lp-features\\\\|lp-pricing\\\\|lp-compare\\\\|competitor\\\\|feature-card\\\\|lp-feat\\\\|lp-plan\\\\|Pro Max\\\\|pro-max\" \"C:\\\\Users\\\\brynn\\\\OneDrive\\\\Documents\\\\GitHub\\\\jobflow\\\\src\\\\js\\\\views\\\\landing.js\" 2>/dev/null | head -50)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\brynn\\\\OneDrive\\\\Documents\\\\GitHub\\\\jobflow\\\\api\\\\job-hunt\\\\scrapers\")"
     ]
   }
 }
